@@ -1,4 +1,7 @@
 #!/bin/bash
-echo "First task solution:"
-javac -cp . task1/*.java
-java -cp . task1/Main
+echo "Solutions for intro module."
+echo ""
+echo "First task solution."
+javac -d ../../../build/classes/main/ -cp . task1/*.java
+java -cp ../../../build/classes/main/ task1/Main
+echo ""
