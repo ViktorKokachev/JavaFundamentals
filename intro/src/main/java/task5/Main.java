@@ -1,8 +1,10 @@
+package task5;
+
 /**
  * Created by kpkshke on 26.06.17.
  * Task5 in intro module.
  */
-public class task5 {
+public class Main {
     public static void main(String[] args) {
         int n = 10; // size of matrix
         int[][] Matrix = new int[n][];
