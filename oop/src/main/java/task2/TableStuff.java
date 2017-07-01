@@ -8,9 +8,9 @@ public abstract class TableStuff {
 
     private Brand brand;
     private Color color;
-    private int price;
+    private double price;
 
-    public TableStuff(Brand brand, Color color, int price) {
+    public TableStuff(Brand brand, Color color, double price) {
         this.brand = brand;
         this.color = color;
         this.price = price;
@@ -32,11 +32,11 @@ public abstract class TableStuff {
         this.color = color;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

@@ -6,7 +6,7 @@ package task2;
 public class Notepad extends TableStuff{
     private int pages;
 
-    public Notepad(Brand brand, Color color, int price, int pages) {
+    public Notepad(Brand brand, Color color, double price, int pages) {
         super(brand, color, price);
         this.pages = pages;
     }

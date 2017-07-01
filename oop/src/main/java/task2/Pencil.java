@@ -4,18 +4,18 @@ package task2;
  * Pencil class
  */
 public class Pencil extends TableStuff {
-    private int rodDiam;
+    private boolean isHard;
 
-    public Pencil(Brand brand, Color color, int price, int rodDiam) {
+    public Pencil(Brand brand, Color color, double price, boolean isHard) {
         super(brand, color, price);
-        this.rodDiam = rodDiam;
+        this.isHard = isHard;
     }
 
-    public int getRodDiam() {
-        return rodDiam;
+    public boolean isHard() {
+        return isHard;
     }
 
-    public void setRodDiam(int rodDiam) {
-        this.rodDiam = rodDiam;
+    public void setHard(boolean hard) {
+        isHard = hard;
     }
 }

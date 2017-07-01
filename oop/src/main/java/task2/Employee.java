@@ -13,6 +13,10 @@ public class Employee {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void addTableStuff(TableStuff tableStuff) {
         TableStuffList.add(tableStuff);
     }

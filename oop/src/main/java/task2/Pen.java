@@ -5,18 +5,18 @@ package task2;
  */
 public class Pen extends TableStuff{
 
-    private boolean isHard;
+    private double rodDiam;
 
-    public Pen(Brand brand, Color color, int price, boolean isHard) {
+    public Pen(Brand brand, Color color, double price, double rodDiam) {
         super(brand, color, price);
-        this.isHard = isHard;
+        this.rodDiam = rodDiam;
     }
 
-    public boolean isHard() {
-        return isHard;
+    public double getRodDiam() {
+        return rodDiam;
     }
 
-    public void setHard(boolean hard) {
-        isHard = hard;
+    public void setRodDiam(double rodDiam) {
+        this.rodDiam = rodDiam;
     }
 }
