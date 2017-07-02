@@ -4,7 +4,7 @@ package task3and4;
  * Class that represents abstact tablestuff
  */
 
-public abstract class TableStuff {
+public abstract class TableStuff implements Comparable<TableStuff> {
 
     private Brand brand;
     private Color color;
