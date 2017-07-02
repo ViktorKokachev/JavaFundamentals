@@ -1,4 +1,4 @@
-package task3;
+package task3and4;
 
 /**
  * Class for pencils

@@ -1,7 +1,4 @@
-package task3;
-
-import task3.Brand;
-import task3.Color;
+package task3and4;
 
 /**
  * Class that represents abstact tablestuff

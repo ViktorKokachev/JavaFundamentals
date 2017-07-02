@@ -1,4 +1,4 @@
-package task3;
+package task3and4;
 
 /**
  * Enum that represents brands of table stuff
