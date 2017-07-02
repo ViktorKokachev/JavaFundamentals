@@ -5,18 +5,23 @@ package task3and4;
  */
 public class Pen extends WritingStuff{
 
-    private int rodDiam;
+    private double rodDiam;
 
-    public Pen(Brand brand, Color color, double price, int length, int rodDiam) {
+    public Pen(Brand brand, Color color, double price, int length, double rodDiam) {
         super(brand, color, price, length);
         this.rodDiam = rodDiam;
     }
 
-    public int getRodDiam() {
+    public double getRodDiam() {
         return rodDiam;
     }
 
-    public void setRodDiam(int rodDiam) {
+    public void setRodDiam(double rodDiam) {
         this.rodDiam = rodDiam;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + rodDiam + " ";
     }
 }

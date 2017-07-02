@@ -4,7 +4,7 @@ package task3and4;
  * Class that represents abstact tablestuff
  */
 
-public abstract class TableStuff implements Comparable<TableStuff> {
+public abstract class TableStuff implements Comparable<TableStuff>{
 
     private Brand brand;
     private Color color;
@@ -39,6 +39,18 @@ public abstract class TableStuff implements Comparable<TableStuff> {
     public void setPrice(double price) {
         this.price = price;
     }
+
+    @Override
+    public int compareTo(TableStuff other) {
+        return Double.compare(this.price, other.price);
+    }
+
+    @Override
+    public String toString() {
+        return brand + " " + color + " " + price + " ";
+    }
+
+
 
 
 }

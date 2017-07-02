@@ -3,7 +3,7 @@ package task3and4;
 /**
  * Class that represents stuff that could be used for making notes
  */
-public class NotingStuff extends TableStuff{
+public abstract class NotingStuff extends TableStuff{
     private int pages;
 
     public NotingStuff(Brand brand, Color color, double price, int pages) {
@@ -17,5 +17,10 @@ public class NotingStuff extends TableStuff{
 
     public void setPages(int pages) {
         this.pages = pages;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + pages + " ";
     }
 }

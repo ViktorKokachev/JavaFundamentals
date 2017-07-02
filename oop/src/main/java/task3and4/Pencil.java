@@ -18,4 +18,9 @@ public class Pencil extends WritingStuff{
     public void setHard(boolean hard) {
         isHard = hard;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + isHard + " ";
+    }
 }

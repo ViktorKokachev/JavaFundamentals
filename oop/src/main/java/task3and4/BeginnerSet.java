@@ -20,16 +20,4 @@ public class BeginnerSet {
     public ArrayList<TableStuff> getBeginnerList() {
         return beginnerList;
     }
-
-    public void sortStuffByBrand() {
-
-    }
-
-    public void sortStuffByPrice() {
-
-    }
-
-    public void sortStuffByPriceAndBrand() {
-
-    }
 }

@@ -20,5 +20,8 @@ public class Notepad extends NotingStuff{
         isFlipingWithRings = flipingWithRings;
     }
 
-
+    @Override
+    public String toString() {
+        return super.toString() + isFlipingWithRings + " ";
+    }
 }

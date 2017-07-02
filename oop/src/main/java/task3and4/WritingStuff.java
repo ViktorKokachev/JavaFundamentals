@@ -18,4 +18,9 @@ public abstract class WritingStuff extends TableStuff{
     public void setLength(int length) {
         this.length = length;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + length + " ";
+    }
 }
