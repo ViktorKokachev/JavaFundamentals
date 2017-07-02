@@ -1,12 +1,13 @@
 package task3;
 
 /**
- * Class for stuff that could be used for writing
+ * Class for stuff that could be used for drawing lines
  */
-public abstract class WritingStuff extends TableStuff{
+public class DrawingLinesStuff extends TableStuff{
+
     private int length;
 
-    public WritingStuff(Brand brand, Color color, double price, int length) {
+    public DrawingLinesStuff(Brand brand, Color color, double price, int length) {
         super(brand, color, price);
         this.length = length;
     }
