@@ -4,17 +4,14 @@ import java.util.ArrayList;
 /**
  * Class for student entity
  */
-public class Student <T extends Number> {
-    String firstName;
-    String secondName;
-    ArrayList<Course> courseList;
+public class Student {
+    private String firstName;
+    private String secondName;
+    private ArrayList<StudentGroup> groupList;
 
     public Student(String firstName, String secondName) {
         this.firstName = firstName;
         this.secondName = secondName;
-    }
-
-    public void addCourse(Course course) {
-        courseList.add(course);
+        groupList = new ArrayList<>();
     }
 }

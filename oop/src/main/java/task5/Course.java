@@ -23,4 +23,8 @@ public enum Course {
                 return false;
         }
     }
+
+    public <T extends Number> StudentGroup<T> createGroup() {
+        return new StudentGroup<T>(this);
+    }
 }
