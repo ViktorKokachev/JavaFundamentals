@@ -1,0 +1,26 @@
+package task5;
+
+/**
+ * Enum that represents all courses that could be attended by students
+ */
+public enum Course {
+    MATH,
+    HISTORY,
+    BIOLOGY,
+    COMPUTER_SCIENCE,
+    LITERATURE,
+    ASTRONOMY,
+    PHYSICS,
+    ECOLOGY;
+
+    public boolean isIntegerMark() {
+        switch (this) {
+            case MATH:
+            case PHYSICS:
+            case LITERATURE:
+                return true;
+            default:
+                return false;
+        }
+    }
+}
