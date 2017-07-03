@@ -13,17 +13,6 @@ public enum Course {
     PHYSICS,
     ECOLOGY;
 
-    public boolean isIntegerMark() {
-        switch (this) {
-            case MATH:
-            case PHYSICS:
-            case LITERATURE:
-                return true;
-            default:
-                return false;
-        }
-    }
-
     public <T extends Number> StudentGroup<T> createGroup() {
         return new StudentGroup<T>(this);
     }

@@ -14,4 +14,8 @@ public class Student {
         this.secondName = secondName;
         groupList = new ArrayList<>();
     }
+
+    public void addGroup(StudentGroup studentGroup) {
+        groupList.add(studentGroup);
+    }
 }

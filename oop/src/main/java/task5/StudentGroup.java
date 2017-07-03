@@ -15,5 +15,6 @@ public class StudentGroup <T extends Number>{
 
     public void addStudent(Student student, T mark){
         markMap.put(student, mark);
+        student.addGroup(this);
     }
 }
