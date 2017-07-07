@@ -1,49 +1,41 @@
 package task6;
 
+import java.util.ArrayList;
+
 /**
- * Created by kpkshke on 26.06.17.
  * Class that describes notepad
  */
 public class Notepad {
-    private Note[] noteArray;
+    private Note[] noteArray = new Note[2];
+    int capacity = 0;
+    int buffersize = 2;
 
-    public Notepad(Note[] noteArray) {
-        this.noteArray = noteArray;
+
+    public void addNote(String s) {
+        if (capacity == noteArray.length) {
+            Note[] tempArray = new Note[noteArray.length + buffersize];
+            for (int i = 0; i < noteArray.length; i++) {
+                tempArray[i] = noteArray[i];
+            }
+            tempArray[noteArray.length] = new Note(s);
+            noteArray = tempArray;
+            capacity++;
+        }
+        else {
+            noteArray[capacity] = new Note(s);
+            capacity++;
+        }
     }
 
-    public Note[] getNoteArray() {
-
-        return noteArray;
+    public void deleteNote(String s) {
     }
 
-    public void setNoteArray(Note[] noteArray) {
-        this.noteArray = noteArray;
-    }
-
-    public void addNote(Note note) {
-
-
-    }
-
-    public void deleteNote(int number) {
-
-    }
-
-    public void deleteNote(Note note) {
-
-    }
-
-    public void editNote(int number) {
-
-    }
-
-    public void editNote(Note note) {
-
+    public void editNote(String s1, String s2) {
     }
 
     public void showNotes() {
-        for (Note note : this.getNoteArray()) {
-            System.out.println(note);
-        }
+        for (int i = 0; i < capacity; i++)
+            System.out.print(noteArray[i].getNote() + " ");
+        System.out.println();
     }
 }
