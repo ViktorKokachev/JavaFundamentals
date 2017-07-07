@@ -15,6 +15,7 @@ public class Questioner {
     private ResourceBundle answers;
 
     public Questioner(String language) {
+        System.out.println(language);
         checkLanguageAvailability(language);
 
         locale = new Locale(language);
