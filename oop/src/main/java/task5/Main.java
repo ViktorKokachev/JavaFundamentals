@@ -5,7 +5,7 @@ package task5;
  */
 public class Main {
     public static void main(String[] args) {
-        //TODO: DOES NOT WORK AS IT COULD
+        //TODO: DOES NOT WORK AS IT SHOULD
         StudentGroup<Integer> physicsGroup = Course.PHYSICS.createGroup();
         StudentGroup<Double> mathGroup = Course.MATH.createGroup();
         Student student = new Student("Viktor", "Kokachev");
