@@ -1,7 +1,6 @@
 package task3and4;
 
 /**
- * Created by kpkshke on 26.06.17.
  * Task3 for intro module
  * TODO: use BigDecimal?
  */

@@ -1,7 +1,6 @@
 package task2;
 
 /**
- * Created by kpkshke on 25.06.17.
  * Second task from intro module
  */
 
