@@ -1,6 +1,5 @@
 package task6;
 
-import java.util.Arrays;
 
 /**
  * Class that describes notepad
@@ -46,6 +45,15 @@ public class Notepad {
     }
 
     public void editNote(String s1, String s2) {
+        int ind = findIndex(s1);
+
+        if (ind == -1) {
+            System.out.println("Your note is not in notepad!");
+        }
+        else {
+            noteArray[ind] = new Note(s2);
+        }
+
     }
 
     public void showNotes() {
