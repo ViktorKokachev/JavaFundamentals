@@ -14,6 +14,8 @@ public class Main {
         notepad.addNote("567");
         System.out.println("Before removal: ");
         notepad.showNotes();
-
+        notepad.deleteNote("234");
+        System.out.println("After removal:");
+        notepad.showNotes();
     }
 }
