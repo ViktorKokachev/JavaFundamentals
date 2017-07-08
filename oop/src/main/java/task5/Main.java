@@ -5,7 +5,6 @@ package task5;
  */
 public class Main {
     public static void main(String[] args) {
-        //TODO: DOES NOT WORK AS IT SHOULD
         StudentGroup<Integer> physicsGroup = Course.PHYSICS.createGroup();
         StudentGroup<Double> mathGroup = Course.MATH.createGroup();
         Student student = new Student("Viktor", "Kokachev");
@@ -14,6 +13,6 @@ public class Main {
         physicsGroup.addStudent(student1, 4);
         mathGroup.addStudent(student, 4.1);
         mathGroup.addStudent(student1, 5.0);
-        //TODO: oupput results
+        student.showGroups();
     }
 }

@@ -18,4 +18,18 @@ public class Student {
     public void addGroup(StudentGroup studentGroup) {
         groupList.add(studentGroup);
     }
+
+    public void showGroups() {
+        for (StudentGroup studentGroup : groupList) {
+            studentGroup.studentOut(this);
+        }
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getSecondName() {
+        return secondName;
+    }
 }
