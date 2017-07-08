@@ -1,7 +1,6 @@
 package task6;
 
 /**
-
  * Class that describe note in notepad
  */
 

@@ -1,7 +1,11 @@
 package task6;
+/**
+ * @author Viktor Kokachev
+ * @version 1.0
+ */
+
 
 /**
-
  * Main class for task6 from intro module
  */
 public class Main {

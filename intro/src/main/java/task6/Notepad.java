@@ -9,7 +9,11 @@ public class Notepad {
     int size = 0;
     int buffersize = 2;
 
-
+    /**
+     * Func that adds note to notepad
+     * @param s
+     *      note that adds to notepad
+     */
     public void addNote(String s) {
         if (size == noteArray.length) {
             Note[] tempArray = new Note[noteArray.length + buffersize];
@@ -28,6 +32,12 @@ public class Notepad {
         System.out.println("Size: " + size);
     }
 
+    /**
+     * Func that deletes note from notepad
+     * Note: deletes only one entry of note to notepad
+     * @param s
+     *      note that deletes notepad
+     */
     public void deleteNote(String s) {
 
         int ind = findIndex(s);
@@ -44,6 +54,14 @@ public class Notepad {
         }
     }
 
+    /**
+     * Func that edits note in notepad
+     * Note: edits only one entry of note to notepad
+     * @param s1
+     *      note that edites notepad
+     * @param s2
+     *      result note
+     */
     public void editNote(String s1, String s2) {
         int ind = findIndex(s1);
 
@@ -55,6 +73,10 @@ public class Notepad {
         }
 
     }
+
+    /**
+     * Func that print all notes from notepad
+     */
 
     public void showNotes() {
         for (int i = 0; i < size; i++)
