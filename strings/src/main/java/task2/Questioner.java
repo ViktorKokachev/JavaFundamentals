@@ -5,7 +5,7 @@ import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
 /**
- * Created by kpkshke on 06.07.17.
+ * Main class for processing questions
  */
 
 public class Questioner {

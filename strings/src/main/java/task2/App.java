@@ -3,7 +3,7 @@ package task2;
 import java.util.Scanner;
 
 /**
- * Created by kpkshke on 06.07.17.
+ * Main class
  */
 public class App {
     public static void main(String[] args) {
