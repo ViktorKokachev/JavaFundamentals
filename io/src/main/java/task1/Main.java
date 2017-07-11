@@ -1,10 +1,6 @@
 package task1;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Arrays;
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,11 +15,14 @@ public class Main {
         Map<String,Integer> keyWordCounter = new HashMap<>();
         File keywords = new File("/home/kpkshke/Documents/IntellijProjects/EpamTraining/JavaFundamentals/io/src/main/resources/keywords");
         File source = new File("/home/kpkshke/Documents/IntellijProjects/EpamTraining/JavaFundamentals/io/src/main/resources/code.java");
+        File output = new File("/home/kpkshke/Documents/IntellijProjects/EpamTraining/JavaFundamentals/io/src/main/resources/output.txt");
 
         readKeyWords(keywords, keyWordCounter);
-        System.out.println(keyWordCounter);
         readSourceFile(source, keyWordCounter);
-        System.out.println(keyWordCounter);
+
+        byte[] result = keyWordCounter.toString().getBytes();
+        writeBytesToFile(output, result);
+
 
     }
 
@@ -42,6 +41,19 @@ public class Main {
             if (keyWordCounter.containsKey(string)) {
                 keyWordCounter.put(string, keyWordCounter.get(string) + 1);
             }
+        }
+    }
+
+    private static void writeBytesToFile (File output, byte[] bytes) {
+        try (FileOutputStream outFile = new FileOutputStream(output)) {
+            outFile.write(bytes);
+        }
+        catch (FileNotFoundException e) {
+            System.out.println("Невозможно произвести запись в файл: "
+                    + output);
+        }
+        catch (IOException e) {
+            System.out.println("Ошибка ввода/вывода: " + e.toString());
         }
     }
 
