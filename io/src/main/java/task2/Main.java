@@ -16,9 +16,9 @@ public class Main {
         File output = new File("/home/kpkshke/Documents/IntellijProjects/EpamTraining/JavaFundamentals/io/src/main/resources/output.txt");
 
         readKeyWords(keywords, keyWordCounter);
-        System.out.println(keyWordCounter);
         readSourceFile(source, keyWordCounter);
-        System.out.println(keyWordCounter);
+
+        writeToFile(output, keyWordCounter.toString());
 
 
     }
@@ -38,6 +38,20 @@ public class Main {
             if (keyWordCounter.containsKey(string)) {
                 keyWordCounter.put(string, keyWordCounter.get(string) + 1);
             }
+        }
+    }
+
+    private static void writeToFile (File output, String string) {
+        try (Writer out = new BufferedWriter(new OutputStreamWriter(
+                new FileOutputStream(output), "UTF8"))) {
+            out.write(string);
+        }
+        catch (FileNotFoundException e) {
+            System.out.println("Невозможно произвести запись в файл: "
+                    + output);
+        }
+        catch (IOException e) {
+            System.out.println("Ошибка ввода/вывода: " + e.toString());
         }
     }
 
