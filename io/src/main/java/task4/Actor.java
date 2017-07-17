@@ -19,4 +19,22 @@ public class Actor {
     public String getSecondName() {
         return secondName;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Actor actor = (Actor) o;
+
+        if (!getFirstName().equals(actor.getFirstName())) return false;
+        return getSecondName().equals(actor.getSecondName());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getFirstName().hashCode();
+        result = 31 * result + getSecondName().hashCode();
+        return result;
+    }
 }
