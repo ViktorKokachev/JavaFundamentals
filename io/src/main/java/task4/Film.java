@@ -20,4 +20,22 @@ public class Film {
     public void addActor (Actor actor) {
         actorList.add(actor);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Film film = (Film) o;
+
+        if (!actorList.equals(film.actorList)) return false;
+        return name.equals(film.name);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = actorList.hashCode();
+        result = 31 * result + name.hashCode();
+        return result;
+    }
 }
