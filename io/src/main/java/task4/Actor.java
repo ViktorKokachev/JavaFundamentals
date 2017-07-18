@@ -1,9 +1,11 @@
 package task4;
 
+import java.io.Serializable;
+
 /**
  * Class that describes actor
  */
-public class Actor {
+public class Actor implements Serializable{
     private String firstName;
     private String secondName;
 

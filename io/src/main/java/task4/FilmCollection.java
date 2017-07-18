@@ -1,14 +1,13 @@
 package task4;
 
 import java.io.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Class that handles with film collection
  */
 public class FilmCollection implements Serializable{
-    private Set<Film> collection = new HashSet<>();
+    private List<Film> collection = new ArrayList<>();
 
     public void addFilm(Film film) {
         collection.add(film);
@@ -22,5 +21,10 @@ public class FilmCollection implements Serializable{
     public static FilmCollection deserializeIt(File file) throws IOException, ClassNotFoundException{
         ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(file));
         return (FilmCollection) objectInputStream.readObject();
+    }
+
+    public void print() {
+        for (Film film : collection)
+            film.print();
     }
 }

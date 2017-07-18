@@ -1,14 +1,12 @@
 package task4;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.io.Serializable;
+import java.util.*;
 
 /**
  * Class that describes film
  */
-public class Film {
+public class Film implements Serializable{
 
     private Set<Actor> actorList = new HashSet<>();
     private String name;
@@ -19,6 +17,13 @@ public class Film {
 
     public void addActor (Actor actor) {
         actorList.add(actor);
+    }
+
+    public void print() {
+        System.out.println(name);
+        for (Actor actor : actorList)
+            System.out.print(actor.getFirstName() + " " + actor.getSecondName());
+        System.out.println();
     }
 
     @Override
