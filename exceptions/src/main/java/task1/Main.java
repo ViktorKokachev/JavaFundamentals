@@ -12,12 +12,17 @@ file:
 -append to file
  */
 
+import com.sun.org.apache.xpath.internal.SourceTree;
+
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        welcomeCommand();
+
+        while (true) {
+            welcomeCommand();
+        }
 
     }
 
@@ -29,43 +34,49 @@ public class Main {
         System.out.println("Type 'deletefile <fullpath>' to delete file with <fullpath>");
         System.out.println("Type 'writetofile <fullpath>' to write to file with <fullpath>. Input your text data in the next step.");
         System.out.println("Type 'appendtofile <fullpath>' to append data to file with <fullpath>. Input your text data in the next step.");
+        System.out.println("Type 'stop' to stop the app");
 
         Scanner scanner = new Scanner(System.in);
         String[] inputToArray = scanner.nextLine().split(" ");
 
-        if (inputToArray.length != 2) {
-            try {
-                throw new CommandNotFoundException(inputToArray[0]);
-            }
-            catch (CommandNotFoundException e) {
-                welcomeCommand();
-            }
+        if (inputToArray[0].equals("stop")) {
+            scanner.close();
+            System.exit(0);
         }
+
         else {
-            switch (inputToArray[0]) {
-                case "showcatalog":
-                    showCatalog(inputToArray);
-                    break;
-                case "showfile":
-                    showFile(inputToArray);
-                    break;
-                case "makefile":
-                    makeFile(inputToArray);
-                    break;
-                case "deletefile":
-                    deleteFile(inputToArray);
-                    break;
-                case "writetofile":
-                    writeToFile(inputToArray);
-                    break;
-                case "apendtofile":
-                    appendToFile(inputToArray);
-                    break;
-                default:
-                    try {
-                        throw new CommandNotFoundException(inputToArray[0]);
-                    } catch (CommandNotFoundException e) {
-                        welcomeCommand();
+            if (inputToArray.length != 2) {
+                try {
+                    throw new CommandNotFoundException(inputToArray[0]);
+                } catch (CommandNotFoundException e) {
+                    welcomeCommand();
+                }
+            } else {
+                switch (inputToArray[0]) {
+                    case "showcatalog":
+                        showCatalog(inputToArray);
+                        break;
+                    case "showfile":
+                        showFile(inputToArray);
+                        break;
+                    case "makefile":
+                        makeFile(inputToArray);
+                        break;
+                    case "deletefile":
+                        deleteFile(inputToArray);
+                        break;
+                    case "writetofile":
+                        writeToFile(inputToArray);
+                        break;
+                    case "apendtofile":
+                        appendToFile(inputToArray);
+                        break;
+                    default:
+                        try {
+                            throw new CommandNotFoundException(inputToArray[0]);
+                        } catch (CommandNotFoundException e) {
+                            welcomeCommand();
+                        }
                     }
                 }
             }
@@ -96,6 +107,10 @@ public class Main {
 
     public static void appendToFile (String[] inputToArray) {
         System.out.println("do apendtofile");
+    }
+
+    private static boolean isStopped(String string) {
+        return string.equals("stop");
     }
 }
 
