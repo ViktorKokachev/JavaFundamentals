@@ -12,9 +12,6 @@ file:
 -append to file
  */
 
-import com.sun.org.apache.xpath.internal.SourceTree;
-
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -37,30 +34,55 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         String[] inputToArray = scanner.nextLine().split(" ");
-        System.out.println(Arrays.toString(inputToArray));
-    }
+
+        switch (inputToArray[0]) {
+            case "showcatalog":
+                showCatalog();
+                break;
+            case "showfile":
+                showFile();
+                break;
+            case "makefile":
+                makeFile();
+                break;
+            case "deletefile":
+                deleteFile();
+                break;
+            case "writetofile":
+                writeToFile();
+                break;
+            case "apendtofile":
+                appendToFile();
+                break;
+            default:
+                System.out.println("ALLE");
+                break;
+
+            }
+        }
+
 
     public static void showCatalog () {
-
+        System.out.println("do showcatalog");
     }
 
     public static void showFile () {
-
+        System.out.println("do showfile");
     }
 
     public static void makeFile () {
-
+        System.out.println("do makefile");
     }
 
     public static void deleteFile () {
-
+        System.out.println("do deletefile");
     }
 
     public static void writeToFile () {
-
+        System.out.println("do writetofile");
     }
 
     public static void appendToFile () {
-
+        System.out.println("do apendtofile");
     }
 }
