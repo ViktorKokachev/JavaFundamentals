@@ -14,6 +14,7 @@ file:
 
 import com.sun.org.apache.xpath.internal.SourceTree;
 
+import java.io.File;
 import java.util.Scanner;
 
 public class Main {
@@ -22,6 +23,7 @@ public class Main {
 
         while (true) {
             welcomeCommand();
+            System.out.println();
         }
 
     }
@@ -54,22 +56,22 @@ public class Main {
             } else {
                 switch (inputToArray[0]) {
                     case "showcatalog":
-                        showCatalog(inputToArray);
+                        showCatalog(inputToArray[1]);
                         break;
                     case "showfile":
-                        showFile(inputToArray);
+                        showFile(inputToArray[1]);
                         break;
                     case "makefile":
-                        makeFile(inputToArray);
+                        makeFile(inputToArray[1]);
                         break;
                     case "deletefile":
-                        deleteFile(inputToArray);
+                        deleteFile(inputToArray[1]);
                         break;
                     case "writetofile":
-                        writeToFile(inputToArray);
+                        writeToFile(inputToArray[1]);
                         break;
                     case "apendtofile":
-                        appendToFile(inputToArray);
+                        appendToFile(inputToArray[1]);
                         break;
                     default:
                         try {
@@ -83,35 +85,53 @@ public class Main {
         }
 
 
-    public static void showCatalog (String[] inputToArray) {
+    public static void showCatalog (String path) {
 
+        File folder = new File(path);
+        if (!folder.isDirectory()) {
+            try {
+                throw new CatalogNotFoundEcxeption(path);
+            }
+            catch (CatalogNotFoundEcxeption e) {
+                System.out.println("Returning to beginning...");
+            }
+        }
+        else {
+            File[] listOfFiles = folder.listFiles();
 
-        System.out.println("do showcatalog");
+            if (listOfFiles.length == 0) {
+                System.out.println("There is no files in this catalog");
+            }
+            else {
+                for (File file : listOfFiles) {
+                    if (file.isFile()) {
+                        System.out.println(file.getName());
+                    }
+                }
+            }
+        }
     }
 
-    public static void showFile (String[] inputToArray) {
+    public static void showFile (String path) {
         System.out.println("do showfile");
     }
 
-    public static void makeFile (String[] inputToArray) {
+    public static void makeFile (String path) {
         System.out.println("do makefile");
     }
 
-    public static void deleteFile (String[] inputToArray) {
+    public static void deleteFile (String path) {
         System.out.println("do deletefile");
     }
 
-    public static void writeToFile (String[] inputToArray) {
+    public static void writeToFile (String path) {
         System.out.println("do writetofile");
     }
 
-    public static void appendToFile (String[] inputToArray) {
+    public static void appendToFile (String path) {
         System.out.println("do apendtofile");
     }
 
-    private static boolean isStopped(String string) {
-        return string.equals("stop");
-    }
 }
 
 
