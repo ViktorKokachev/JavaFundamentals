@@ -14,7 +14,7 @@ file:
 
 import com.sun.org.apache.xpath.internal.SourceTree;
 
-import java.io.File;
+import java.io.*;
 import java.util.Scanner;
 
 public class Main {
@@ -113,7 +113,34 @@ public class Main {
     }
 
     public static void showFile (String path) {
-        System.out.println("do showfile");
+        File folder = new File(path);
+        if (!folder.isFile()) {
+            try {
+                throw new PathToFileNotFoundEcxeption(path);
+            }
+            catch (PathToFileNotFoundEcxeption e) {
+                System.out.println("Returning to beginning...");
+            }
+        }
+        else {
+            try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+                StringBuilder sb = new StringBuilder();
+                String line = br.readLine();
+
+                while (line != null) {
+                    sb.append(line);
+                    sb.append(System.lineSeparator());
+                    line = br.readLine();
+                }
+                System.out.println(sb);
+            }
+            catch (FileNotFoundException e) {
+                System.out.println(e.getMessage());
+            }
+            catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 
     public static void makeFile (String path) {
