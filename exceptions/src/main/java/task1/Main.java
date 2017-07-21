@@ -2,17 +2,11 @@ package task1;
 
 /*
 TODO:
-catalog:
--show list of files in <path>
-file:
--delete <full path name>
 -show <file>
 -create file with name in <path>
 -write in file
 -append to file
  */
-
-import com.sun.org.apache.xpath.internal.SourceTree;
 
 import java.io.*;
 import java.util.Scanner;
@@ -42,7 +36,6 @@ public class Main {
         String[] inputToArray = scanner.nextLine().split(" ");
 
         if (inputToArray[0].equals("stop")) {
-            scanner.close();
             System.exit(0);
         }
 
@@ -100,7 +93,7 @@ public class Main {
             File[] listOfFiles = folder.listFiles();
 
             if (listOfFiles.length == 0) {
-                System.out.println("There is no files in this catalog");
+                System.out.println("There are no files in this catalog");
             }
             else {
                 for (File file : listOfFiles) {
@@ -134,9 +127,6 @@ public class Main {
                 }
                 System.out.println(sb);
             }
-            catch (FileNotFoundException e) {
-                System.out.println(e.getMessage());
-            }
             catch (IOException e) {
                 System.out.println(e.getMessage());
             }
@@ -144,7 +134,24 @@ public class Main {
     }
 
     public static void makeFile (String path) {
-        System.out.println("do makefile");
+        System.out.println("Input name of the .txt file");
+        Scanner scanner = new Scanner(System.in);
+        String[] name = scanner.nextLine().split(" ");
+        if (name.length != 1 || nameContainsIllegalCharacters(name[0])) {
+            try {
+                throw new NotCorrectNameException(name);
+            }
+            catch (NotCorrectNameException e) {
+                System.out.println("Returning to beginning...");
+            }
+        }
+        else {
+            StringBuilder sb = new StringBuilder(path)
+                    .append(File.separator)
+                    .append(name[0]);
+            System.out.println(sb);
+        }
+
     }
 
     public static void deleteFile (String path) {
@@ -157,6 +164,20 @@ public class Main {
 
     public static void appendToFile (String path) {
         System.out.println("do apendtofile");
+    }
+
+    public static boolean nameContainsIllegalCharacters (String inputStr)
+    {
+        final char[] ILLEGAL_CHARACTERS = { '/', '\n', '\r', '\t', '\0', '\f', '`', '?', '*', '\\', '<', '>', '|', '\"', ':' };
+
+        for(int i = 0; i < ILLEGAL_CHARACTERS.length; i++)
+        {
+            if (inputStr.contains(String.valueOf(ILLEGAL_CHARACTERS[i])));
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
