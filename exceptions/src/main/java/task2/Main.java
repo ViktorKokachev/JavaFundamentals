@@ -6,11 +6,12 @@ import java.util.Map;
 
 public class Main {
 
-    public static void main(String[] args) throws NoPropertiesFileFoundException, FileNotFoundException {
+    public static void main(String[] args) throws NoPropertiesFileFoundException, FileNotFoundException, NoSuchKeyInPropertiesFIleException {
 
         Map<String,String> properties = new HashMap<>();
         String file = "/home/kpkshke/Documents/IntellijProjects/EpamTraining/JavaFundamentals/exceptions/src/main/resources/prop.properties";
         File propFile = new File(file);
+        String key = "db.host";
 
 
         if (!propFile.exists()) {
@@ -18,6 +19,12 @@ public class Main {
         }
 
         loadProperties(file, properties);
+
+        if (!properties.containsKey(key)) {
+            throw new NoSuchKeyInPropertiesFIleException(key);
+        }
+
+        System.out.printf("Value: %s", properties.get(key));
 
 
     }
