@@ -8,6 +8,6 @@
 | PriorityQueue 	|    Yes   	|       No      	|        No       	|        Yes       	|         No        	|      No     	|          No         	|
 |    HashMap    	|    No    	|      Yes      	|       Yes       	|        No        	|        Yes        	|      No     	|          No         	|
 | LinkedHashMap 	|    Yes   	|       No      	|       Yes       	|        No        	|        Yes        	|      No     	|          No         	|
-|  WeakHashMap  	|    No    	|      Yes      	|       Yes       	|        No        	|                   	|      No     	|          No         	|
+|  WeakHashMap  	|    No    	|      Yes      	|       Yes       	|        No        	|        Yes           	|      No     	|          No         	|
 |    TreeMap    	|    Yes   	|       No      	|       Yes       	|        No        	|         No        	|      No     	|          No         	|
 |     Vector    	|    Yes   	|      Yes      	|        No       	|        Yes       	|        Yes        	|     Yes     	|         Yes         	|
