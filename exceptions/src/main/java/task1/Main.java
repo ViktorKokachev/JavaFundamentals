@@ -2,13 +2,10 @@ package task1;
 
 /*
 TODO:
--delete file
--write in file
 -append to file
  */
 
 import java.io.*;
-import java.nio.file.NoSuchFileException;
 import java.util.Scanner;
 
 public class Main {
@@ -220,7 +217,52 @@ public class Main {
     }
 
     public static void writeToFile (String path) {
-        System.out.println("do writetofile");
+        File folder = new File(path);
+        if (!folder.isDirectory()) {
+            try {
+                throw new CatalogNotFoundEcxeption(path);
+            }
+            catch (CatalogNotFoundEcxeption e) {
+                System.out.println("Returning to beginning...");
+            }
+        }
+        else {
+            System.out.println("Input name of the .txt file");
+            Scanner scanner = new Scanner(System.in);
+            String[] name = scanner.nextLine().split(" ");
+            if (name.length != 1 || nameContainsIllegalCharacters(name[0])) {
+                try {
+                    throw new NotCorrectNameException(name);
+                } catch (NotCorrectNameException e) {
+                    System.out.println("Returning to beginning...");
+                }
+
+            } else {
+                StringBuilder sb = new StringBuilder(path)
+                        .append(File.separator)
+                        .append(name[0])
+                        .append(".txt");
+
+                StringBuilder data = new StringBuilder();
+
+                System.out.println("Enter your data. Type 'DONE' to close input");
+
+                while(true) {
+                    String input = scanner.nextLine();
+                    if ("DONE".equalsIgnoreCase(input.trim())) {
+                        break;
+                    }
+                    data.append(input).append("\n");
+                }
+
+                try (BufferedWriter bw = new BufferedWriter(new FileWriter(sb.toString()))) {
+                    bw.write(data.toString());
+                }
+                catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
     public static void appendToFile (String path) {
